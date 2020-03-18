@@ -11,8 +11,46 @@ class LexicalAnalyzer:
         with open(input_path, 'r', encoding='utf-8') as file:
             input_text = file.read().replace('\n', ' ')
             nlp = spacy.load('pt_core_news_sm')
+
+        input_text_corrected = ""
+
+        for word in input_text.split(' '):
+            if word[-1] in ['.', ',', '!', '?']:
+                word = self._convert_plural_to_singular(word[:-1]) + word[-1]
+            else:
+                word = self._convert_plural_to_singular(word)
+
+            input_text_corrected += word + ' '
+        print(input_text_corrected)
         
-        self._doc = nlp(input_text)
+        self._doc = nlp(input_text_corrected)
+
+    def _replace_characters(self, word, start_index, end_index, new_characters):
+        word_characters = list(word)
+        word_characters[start_index:end_index] = ''
+        i = 0
+
+        for character in list(new_characters):
+            word_characters.insert(start_index+i, character)
+            i += 1
+
+        word = "".join(word_characters)
+
+        return word
+
+    def _convert_plural_to_singular(self, word):
+        if word[-3:] in ['ões', 'ãos', 'ães']:
+            return self._replace_characters(word, len(word)-3, len(word), 'ão')
+        elif word[-3:] in ['res', 'ses', 'zes']:
+            return self._replace_characters(word, len(word)-3, len(word), word[-3])
+        elif word[-3:] in ['ais', 'eis', 'éis', 'ois', 'óis', 'uis']:
+            return self._replace_characters(word, len(word)-2, len(word), 'l')
+        elif word[-2:] == 'ns':
+            return self._replace_characters(word, len(word)-2, len(word), 'm')
+        elif word[-1] == 's':
+            return self._replace_characters(word, len(word)-1, len(word), '')
+        else:
+            return word            
 
     def _convert_part_of_speech_spacy_to_portuguese(self, spacy_pos: str) -> str:
         if spacy_pos == 'PROPN':
@@ -23,6 +61,8 @@ class LexicalAnalyzer:
             part_of_speech = 'adjetivo'
         elif spacy_pos == 'NOUN':
             part_of_speech = 'substantivo'
+        elif spacy_pos == 'ADV':
+            part_of_speech = 'advérbio'
         elif spacy_pos == 'VERB':
             part_of_speech = 'verbo'
         elif spacy_pos == 'AUX':
@@ -69,6 +109,7 @@ class LexicalAnalyzer:
         for element in self._doc:
             # Extrai a classe gramátical da palavra e converte para português:
             part_of_speech = self._convert_part_of_speech_spacy_to_portuguese(element.pos_)
+            print(element.orth_, element.pos_)
 
             # Checa se a palavra é um verbo:
             if part_of_speech in ['verbo', 'verbo auxiliar']:
