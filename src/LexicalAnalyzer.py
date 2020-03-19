@@ -126,3 +126,5 @@ class LexicalAnalyzer:
             table.append({'token': token, 'class': part_of_speech})
         
         return table
+
+print(LexicalAnalyzer("input.txt").create_table())
