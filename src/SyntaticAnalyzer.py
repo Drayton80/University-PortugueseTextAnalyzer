@@ -12,7 +12,7 @@ class SyntaticAnalyzer:
             self._current_value = self._lexical_table.pop(0)
         else:
             self._current_value = {'token': '', 'class': '', 'line': ''}
-
+        
         return self._current_value
 
     def _previous_value(self):
@@ -93,7 +93,6 @@ class SyntaticAnalyzer:
                 self._sintagma_verbal()
 
         elif self._current_value['class'] == "verbo auxiliar":
-            self._auxiliary_verb()
             self._next_value()
 
             if self._current_value['class'] == "verbo":
@@ -126,17 +125,23 @@ class SyntaticAnalyzer:
         else:
             return
 
-    def _text(self):
+    def text(self):
         self._next_value()
         if self._current_value['class'] == "advérbio":
             self._sintagma_adverbial()
-            self._next_value()
 
-            self._text()
+            self._next_value()
+            self.text()
         elif self._current_value['class'] in ['substantivo', 'pronome', 'adjetivo']:
             self._sentenca1()
-            self._next_value()
 
-            self._text()
-        else:
-            return
+            self._next_value()
+            if self._current_value['class'] == 'pontuação':
+                self._next_value()
+                # Next Sentence da gramática livre de contexto:
+                if self._current_value['class'] != '':
+                    self.text()
+                else:
+                    return
+            else:
+                return Exception()

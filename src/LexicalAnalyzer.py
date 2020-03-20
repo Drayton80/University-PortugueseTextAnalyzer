@@ -21,7 +21,6 @@ class LexicalAnalyzer:
                 word = self._convert_plural_to_singular(word)
 
             input_text_corrected += word + ' '
-        print(input_text_corrected)
         
         self._doc = nlp(input_text_corrected)
 
@@ -109,7 +108,6 @@ class LexicalAnalyzer:
         for element in self._doc:
             # Extrai a classe gramátical da palavra e converte para português:
             part_of_speech = self._convert_part_of_speech_spacy_to_portuguese(element.pos_)
-            print(element.orth_, element.pos_)
 
             # Checa se a palavra é um verbo:
             if part_of_speech in ['verbo', 'verbo auxiliar']:
@@ -126,5 +124,3 @@ class LexicalAnalyzer:
             table.append({'token': token, 'class': part_of_speech})
         
         return table
-
-print(LexicalAnalyzer("input.txt").create_table())
