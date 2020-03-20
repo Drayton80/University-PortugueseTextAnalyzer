@@ -18,23 +18,23 @@ Para a geração dessa tabela foi usado o módulo de **Processamento Natural de 
 ## Analisador Sintático
 A classe que representa esse analisador faz a verificação da sintaxe do texto utilizando métodos recursivos que foram implementados com base na **gramática livre de contexto** expressa abaixo a qual tenta simular parcialmente a **gramática portuguesa** no contexto reduzido relativo ao texto simplificado entregue nas especificações do projeto.
 
-*Texto &#8594; SintagmaAdverbial Texto | Sentença pontuação Texto | Sentença pontuação*
-*Sentença &#8594; Sentença SintagmaNominal | Sentença SintagmaVerbal | SintagmaNominal*
-*SintagmaNominal  &#8594; SintagmaAdjetival SintagmaNominal  | substantivo SintagmaNominal  | pronome SintagmaNominal  | substantivo | pronome*
-*SintagmaVerbal &#8594; SintagmaAdverbial SintagmaVerbal | verbo-auxiliar verbo | verbo SintagmaVerbal | verbo SintagmaAdjetival | verbo*
-*SintagmaAdjetival  &#8594; SintagmaAdverbial adjetivo | adjetivo SintagmaAdjetival | ε*
-*SintagmaAdverbial &#8594; advérbio SintagmaAdverbial | advérbio | ε*
+*Texto &#8594; SintagmaAdverbial Texto | Sentença pontuação Texto | Sentença pontuação*&nbsp;
+*Sentença &#8594; Sentença SintagmaNominal | Sentença SintagmaVerbal | SintagmaNominal*&nbsp;
+*SintagmaNominal  &#8594; SintagmaAdjetival SintagmaNominal  | substantivo SintagmaNominal  | pronome SintagmaNominal  | substantivo | pronome*&nbsp;
+*SintagmaVerbal &#8594; SintagmaAdverbial SintagmaVerbal | verbo-auxiliar verbo | verbo SintagmaVerbal | verbo SintagmaAdjetival | verbo*&nbsp;
+*SintagmaAdjetival  &#8594; SintagmaAdverbial adjetivo | adjetivo SintagmaAdjetival | ε*&nbsp;
+*SintagmaAdverbial &#8594; advérbio SintagmaAdverbial | advérbio | ε*&nbsp;
 
 Para adequar a gramática aos métodos de recursão utilizados para a análise sintática foi necessário aplicar o método de desambiguação e remover as recursões à esquerda, transformado a gramática da seguinte forma:
 
-*Texto &#8594; SintagmaAdverbial Texto | Sentença1 pontuação SentençasPosteriores
-SentençasPosteriores &#8594; Texto | ε
-Sentença1 &#8594; SintagmaNominal Sentença2
-Sentença2 &#8594; SintagmaNominal  Sentença2 | SintagmaVerbal Sentença2 | ε
-SintagmaNominal  &#8594; SintagmaAdjetival SintagmaNominal  | substantivo SintagmaNominal  | pronome SintagmaNominal  | substantivo | pronome
-SintagmaVerbal &#8594; SintagmaAdverbial SintagmaVerbal | verbo-auxiliar verbo | verbo PosteriorVerbo
-PosteriorVerbo &#8594; SintagmaVerbal | SintagmaAdjetival | ε
-SintagmaAdjetival  &#8594; SintagmaAdverbial adjetivo | adjetivo SintagmaAdjetival | ε
-SintagmaAdverbial &#8594; advérbio SintagmaAdverbial | advérbio | ε*
+*Texto &#8594; SintagmaAdverbial Texto | Sentença1 pontuação SentençasPosteriores*&nbsp;
+*SentençasPosteriores &#8594; Texto | ε*&nbsp;
+*Sentença1 &#8594; SintagmaNominal Sentença2*&nbsp;
+*Sentença2 &#8594; SintagmaNominal  Sentença2 | SintagmaVerbal Sentença2 | ε*&nbsp;
+*SintagmaNominal  &#8594; SintagmaAdjetival SintagmaNominal  | substantivo SintagmaNominal  | pronome SintagmaNominal  | substantivo | pronome*&nbsp;
+*SintagmaVerbal &#8594; SintagmaAdverbial SintagmaVerbal | verbo-auxiliar verbo | verbo PosteriorVerbo*&nbsp;
+*PosteriorVerbo &#8594; SintagmaVerbal | SintagmaAdjetival | ε*&nbsp;
+*SintagmaAdjetival  &#8594; SintagmaAdverbial adjetivo | adjetivo SintagmaAdjetival | ε*&nbsp;
+*SintagmaAdverbial &#8594; advérbio SintagmaAdverbial | advérbio | ε*&nbsp;
 
 
