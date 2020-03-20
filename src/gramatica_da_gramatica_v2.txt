@@ -1,10 +1,10 @@
-texto -> sintagma_adverbial texto | sentenÁa1 pontuaÁ„o | sentenÁa1 pontuaÁ„o texto
-sentenÁa1 -> sintagma_nominal sentenÁa2
-sentenÁa2 -> sintagma_nominal sentenÁa2 | sintagma_verbal sentenÁa2 | e
-
+texto -> sintagma_adverbial texto | senten√ßa1 pontua√ß√£o proximas_senten√ßas
+proximas_senten√ßas -> texto | e
+senten√ßa1 -> sintagma_nominal senten√ßa2
+senten√ßa2 -> sintagma_nominal senten√ßa2 | sintagma_verbal senten√ßa2 | e
 
 sintagma_nominal -> sintagma_adjetival sintagma_nominal | substantivo sintagma_nominal | pronome sintagma_nominal | substantivo | pronome
 sintagma_verbal -> sintagma_adverbial sintagma_verbal | verbo_auxiliar verbo | verbo sintagma_verbal | verbo sintagma_adjetival | verbo
 
 sintagma_adjetival -> sintagma_adverbial adjetivo | adjetivo sintagma_adjetival | e
-sintagma_adverbial -> advÈrbio sintagma_adverbial | advÈrbio | e
+sintagma_adverbial -> adv√©rbio sintagma_adverbial | adv√©rbio | e
