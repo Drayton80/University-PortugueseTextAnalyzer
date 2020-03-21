@@ -39,9 +39,12 @@ Para adequar a gramática aos métodos de recursão utilizados para a análise s
 
 ## Bag of Words
 
-Com o texto checado a partir das técnicas de analise gramátical e léxicas aprendidas durante a disciplina de compiladores, caso nenhuma exceção venha a aparecer, a linguagem presente no texto está definida corretamente, logo podemos a usar como entrada para um modelo de machine Learning.
+
+Com o texto checado a partir das técnicas de analise gramatical e léxicas aprendidas durante a disciplina de compiladores, caso nenhuma exceção venha a aparecer, a linguagem presente no texto está definida corretamente, logo podemos a usar como entrada para um modelo de machine Learning.
+
 Entretanto, os modelos de machine learning que realizam o processamento de texto, demandam uma estrutura organizada de entrada de forma que ele possa performar encima desses dados, ao invés apenas do texto bruto, uma das formas que são usadas para estruturar esses dados é o que chamamos de **Bag of Words**, nela nos agrupamos a quantidade de ocorrências de uma palavras em um pedaço de texto. Ela é chamada de "Bag", pois toda a informação da estrutura do texto ou ordem que as palavras estão presentes no texto é descartado, o modelo apenas se preocupará quando alguma palavra aparece no texto, mas não onde ela se localiza.
-Para realizar a contagem, primeiramente transformamos todas as palavras em um token numeral e então realizamos sua contagem com o auxilio de uma função de vetorização do **Sklearn**. Para a geração do **Bag of Words** uma coisa que os estudos atuais tem demonstrado grande impacto na melhora da performace do modelo é quando essa entrada não está levando em consideração Stopwords, como artigos ou preposições, por isso usamos a listagem de stopwords disponveis para download através do **Nltk** ou **Natural Language Toolkit**.
+
+Para realizar a contagem, primeiramente transformamos todas as palavras em um token numeral e então realizamos sua contagem com o auxilio de uma função de vetorização do **Sklearn**. Para a geração do **Bag of Words** uma coisa que os estudos atuais tem demonstrado grande impacto na melhora da performance do modelo é quando essa entrada não está levando em consideração stopwords, como artigos ou preposições, por isso usamos a listagem de stopwords disponíveis para download através do **Nltk** ou **Natural Language Toolkit**.
 
 # Analise de uso
 
