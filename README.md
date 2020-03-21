@@ -47,12 +47,14 @@ Para realizar a contagem, primeiramente transformamos todas as palavras em um to
 
 ## Classificação de documentos
  
-A partir do uso dessas tecnicas, um classificador de documento automizatizado passa a ser viabilizado, aqui teriamos a analise se o texto de fato compreende uma linguagem passível de leitura correta, a partir dos analisadores sintático e léxico, além da classificação correspondente do documento com um modelo de machine learning executando encima do bag of words que podemos oferecer.
+A partir do uso dessas técnicas, um classificador de documento autônomo passa a ser viabilizado, aqui teríamos a analise se o texto de fato compreende uma linguagem passível de leitura correta, a partir dos analisadores sintático e léxico, além da classificação correspondente do documento com um modelo de machine learning executando encima do bag of words que podemos oferecer.
 
 ## Auditor Computadorizado
  
 Instituições como o TCU(Tribunal de Contas da União) e TCE(Tribunal de contas do Estado) são organizações responsáveis da fiscalização fiscal contábil e financeira do dinheiro público, isso se é possível ao realizar a investigação dos documentos referentes a operações financeiras.
-Devido a grande quantidade de documentação pública e movimentações financeiras que acontecem diariamente. Uma aplicação que seja capaz de realizar uma triagem automatizada dessa documentação, procurando inconsistências nos registros ou situações fora do padrão, traria grande economia de tempo e eficiência de processos, para os auditores.
+Devido a grande quantidade de documentação pública e movimentações financeiras que acontecem diariamente. 
+
+Uma aplicação que seja capaz de realizar uma triagem automatizada dessa documentação, procurando inconsistências nos registros ou situações fora do padrão, traria grande economia de tempo e eficiência de processos, para os auditores.
 
 ## Analise jurídica preliminar
 
