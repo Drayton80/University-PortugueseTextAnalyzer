@@ -43,17 +43,17 @@ Com o texto checado a partir das técnicas de analise gramátical e léxicas apr
 Entretanto, os modelos de machine learning que realizam o processamento de texto, demandam uma estrutura organizada de entrada de forma que ele possa performar encima desses dados, ao invés apenas do texto bruto, uma das formas que são usadas para estruturar esses dados é o que chamamos de **Bag of Words**, nela nos agrupamos a quantidade de ocorrências de uma palavras em um pedaço de texto. Ela é chamada de "Bag", pois toda a informação da estrutura do texto ou ordem que as palavras estão presentes no texto é descartado, o modelo apenas se preocupará quando alguma palavra aparece no texto, mas não onde ela se localiza.
 Para realizar a contagem, primeiramente transformamos todas as palavras em um token numeral e então realizamos sua contagem com o auxilio de uma função de vetorização do **Sklearn**. Para a geração do **Bag of Words** uma coisa que os estudos atuais tem demonstrado grande impacto na melhora da performace do modelo é quando essa entrada não está levando em consideração Stopwords, como artigos ou preposições, por isso usamos a listagem de stopwords disponveis para download através do **Nltk** ou **Natural Language Toolkit**.
 
-## Analise de uso
+# Analise de uso
 
- - Classificação de documentos
+## Classificação de documentos
  
 A partir do uso dessas tecnicas, um classificador de documento automizatizado passa a ser viabilizado, aqui teriamos a analise se o texto de fato compreende uma linguagem passível de leitura correta, a partir dos analisadores sintático e léxico, além da classificação correspondente do documento com um modelo de machine learning executando encima do bag of words que podemos oferecer.
 
- - Auditor Computadorizado
+## Auditor Computadorizado
  
 Instituições como o TCU(Tribunal de Contas da União) e TCE(Tribunal de contas do Estado) são organizações responsáveis da fiscalização fiscal contábil e financeira do dinheiro público, isso se é possível ao realizar a investigação dos documentos referentes a operações financeiras.
 Devido a grande quantidade de documentação pública e movimentações financeiras que acontecem diariamente. Uma aplicação que seja capaz de realizar uma triagem automatizada dessa documentação, procurando inconsistências nos registros ou situações fora do padrão, traria grande economia de tempo e eficiência de processos, para os auditores.
 
-- Analise jurídica preliminar
+## Analise jurídica preliminar
 
 Uma outra situação que poderíamos processar informações de texto e aumentar a eficiência de processos é no setor de defesa jurídica, que assim como no caso da auditoria de contas, tem seus integrantes desperdiçando grande parte dos seus recursos de tempo e dinheiro analisando centenas de documentos, aonde uma ferramenta que faça a analise textual poderia facilitar esse processo e trazer apenas os trechos de importante leitura.
