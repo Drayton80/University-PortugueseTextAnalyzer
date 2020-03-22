@@ -50,15 +50,9 @@ Para realizar a contagem, primeiramente transformamos todas as palavras em um to
 
 Um texto, após passar pelas etapas desenvolvidas nesse projeto, estaria tanto com uma gramática de português apta para analise, quanto com um formato de input aceitável para as técnicas de machine learning hoje vigentes no mercado para processamento de textos.
 
-
-
-## Classificação de documentos
-
- ## Rede Neural
-A partir do uso dessas técnicas, um classificador de documento autônomo passa a ser viabilizado, aqui teríamos a analise se o texto de fato compreende uma linguagem passível de leitura correta, a partir dos analisadores sintático e léxico, além da classificação correspondente do documento com um modelo de machine learning executando encima do bag of words que podemos oferecer.
-
 Existem várias técnicas hoje no mercado para o aprendizado de máquina, como Naive Bayes ou Support Vector Machine, entretanto, atualmente uma das abordagens que vem trazendo mais resultados são de uma ramificação do machine learning chamado deep learning, sendo dessa área o algoritmo de Redes Neurais recorrentes as que tem trazido maiores resultados para o processamento de texto.
 
+ ## Rede Neural
 Primeiro precisamos entender o que é uma rede neural para entender a base de uma rede recorrente. Uma rede neural pode ser entendida como um conjunto de combinações lineares. Observe a figura 1, nela cada nó de entrada(nós roxos) são multiplicado por um peso que estão representados nas arestas entre os nós, sendo que, em cada neurônio(nós azuis escuros) eles são combinados em um valor a partir de uma soma
 ![Imagem 1 - Exemplo de rede neural](https://miro.medium.com/fit/c/1838/551/1*ySYgu-DDvVjKU_rW_g-pUA.jpeg)
 
@@ -77,6 +71,11 @@ Uma rede neural recursiva pode ser entendida como uma redes neural com memória 
 A partir disso a aplicação em documentos, em que geramos diversos vetores de bag of words, podem ser usados para retroalimentar um próximo vetor, logo uma ou várias sentenças anteriores, podem ser levadas em consideração na hora de avaliar a validade de uma outra, fazendo a analise de um documento contar não só com o vetor atual de um bag of words, mas de anteriores também.
 
 Com isso em mente, várias aplicaçes onde a analise de vários documentos são necessrios poderia ser possível, a partir de um conjunto de treinamento adequado, vejamos aqui quais seriam interessantes aplicações para essas técnicas.
+
+
+## Classificação de documentos
+
+A partir do uso dessas técnicas, um classificador de documento autônomo passa a ser viabilizado, aqui teríamos a analise se o texto de fato compreende uma linguagem passível de leitura correta, a partir dos analisadores sintático e léxico, além da classificação correspondente do documento com um modelo de machine learning, em especial sendo o Rnn previamente explicado, executando encima do bag of words que podemos oferecer.
 
 ## Auditor Computadorizado
  
