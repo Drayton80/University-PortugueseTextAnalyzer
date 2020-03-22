@@ -56,7 +56,7 @@ Existem várias técnicas hoje no mercado para o aprendizado de máquina, como N
 Primeiro precisamos entender o que é uma rede neural para entender a base de uma rede recorrente. Uma rede neural pode ser entendida como um conjunto de combinações lineares. Observe a figura 1, nela cada nó de entrada(nós roxos) são multiplicado por um peso que estão representados nas arestas entre os nós, sendo que, em cada neurônio(nós azuis escuros) eles são combinados em um valor a partir de uma soma
 ![Imagem 1 - Exemplo de rede neural](https://miro.medium.com/fit/c/1838/551/1*ySYgu-DDvVjKU_rW_g-pUA.jpeg)
 
-Isso vai acontecendo sequencialmente até a camada de saída(nó azul ciano), onde todas essas somas são combinadas a partir uma função de a ativação e esse resultado é interpretado em uma classificação ou regressão.
+Isso vai acontecendo sequencialmente até a camada de saída(nó azul ciano), onde todas essas somas são combinadas a partir uma função de a ativação e esse resultado é interpretado em uma classificação ou regressão. Na imagem 2 temos o exemplo de uma funçao de ativação muito usada em redes neurais para classificações binárias, a função sigmoid, a interpretação comumente usada para a agregação dos resultados em um neurônio de sada desses, que passa por essa função, é a probabilidade no intervalo [0, 1] de ser uma classificação positiva.
 
 ![Imagem 2 - Sigmoid Function](https://image.slidesharecdn.com/nlppresentation-171127220207/95/aprendizado-de-mquina-em-linguagem-natural-9-638.jpg?cb=1512141144)
 
