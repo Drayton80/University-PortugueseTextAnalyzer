@@ -48,9 +48,35 @@ Para realizar a contagem, primeiramente transformamos todas as palavras em um to
 
 # Analise de uso
 
+Um texto, após passar pelas etapas desenvolvidas nesse projeto, estaria tanto com uma gramática de português apta para analise, quanto com um formato de input aceitável para as técnicas de machine learning hoje vigentes no mercado para processamento de textos.
+
+
+
 ## Classificação de documentos
- 
+
+ ## Rede Neural
 A partir do uso dessas técnicas, um classificador de documento autônomo passa a ser viabilizado, aqui teríamos a analise se o texto de fato compreende uma linguagem passível de leitura correta, a partir dos analisadores sintático e léxico, além da classificação correspondente do documento com um modelo de machine learning executando encima do bag of words que podemos oferecer.
+
+Existem várias técnicas hoje no mercado para o aprendizado de máquina, como Naive Bayes ou Support Vector Machine, entretanto, atualmente uma das abordagens que vem trazendo mais resultados são de uma ramificação do machine learning chamado deep learning, sendo dessa área o algoritmo de Redes Neurais recorrentes as que tem trazido maiores resultados para o processamento de texto.
+
+Primeiro precisamos entender o que é uma rede neural para entender a base de uma rede recorrente. Uma rede neural pode ser entendida como um conjunto de combinações lineares. Observe a figura 1, nela cada nó de entrada(nós roxos) são multiplicado por um peso que estão representados nas arestas entre os nós, sendo que, em cada neurônio(nós azuis escuros) eles são combinados em um valor a partir de uma soma
+![Imagem 1 - Exemplo de rede neural](https://miro.medium.com/fit/c/1838/551/1*ySYgu-DDvVjKU_rW_g-pUA.jpeg)
+
+Isso vai acontecendo sequencialmente até a camada de saída(nó azul ciano), onde todas essas somas são combinadas a partir uma função de a ativação e esse resultado é interpretado em uma classificação ou regressão.
+
+![Imagem 2 - Sigmoid Function](https://image.slidesharecdn.com/nlppresentation-171127220207/95/aprendizado-de-mquina-em-linguagem-natural-9-638.jpg?cb=1512141144)
+
+Vários inputs são passados por essas redes, várias vezes de forma a cada vez mais obter arestas que quando multiplicados aos valores presentes nos nós, cheguem mais próximos de um valor real, isso é executado a partir de um algoritmo chamado backpropagation, onde o erro de uma atribuição é passado para as arestas de maneira a corrigir as inferências.
+
+## Redes Neurais Recursivas
+
+Uma rede neural recursiva pode ser entendida como uma redes neural com memória de estado anterior, onde entre as conexões dos nós, o resultado é retroalimentado formando uma espécie de loop no próprio, assim o próximo valor daquele neurônio tem sempre como base um valor prévio, como pode ser visto na imagem 3.
+
+![Imagem 3](https://www.researchgate.net/profile/Lei_Tai/publication/311805526/figure/fig3/AS:667790805565446@1536225143793/Recurrent-Neural-Network-Structure-The-left-is-the-typical-RNN-structure-The-right-part.png)
+
+A partir disso a aplicação em documentos, em que geramos diversos vetores de bag of words, podem ser usados para retroalimentar um próximo vetor, logo uma ou várias sentenças anteriores, podem ser levadas em consideração na hora de avaliar a validade de uma outra, fazendo a analise de um documento contar não só com o vetor atual de um bag of words, mas de anteriores também.
+
+Com isso em mente, várias aplicaçes onde a analise de vários documentos são necessrios poderia ser possível, a partir de um conjunto de treinamento adequado, vejamos aqui quais seriam interessantes aplicações para essas técnicas.
 
 ## Auditor Computadorizado
  
