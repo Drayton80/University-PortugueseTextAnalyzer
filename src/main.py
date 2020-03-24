@@ -5,17 +5,22 @@ sys.path.append(os.path.abspath(os.path.join('..')))
 
 from src.LexicalAnalyzer import LexicalAnalyzer
 from src.SyntaticAnalyzer import SyntaticAnalyzer
+from src.BagOfWords import BagOfWords
 
 
 if __name__ == '__main__':
     table = LexicalAnalyzer('../data/input.txt').create_table()
     
+    print()
     for element in table:
         print(element)
 
+    print()
+    BagOfWords('../data/input.txt', 'portuguese').print_bag_of_words()
+
     try:
         SyntaticAnalyzer('../data/input.txt').text()
-        print('O texto não possui qualquer erro sintático')
+        print('\nO texto não possui qualquer erro sintático')
     except Exception as e:
         print('O texto está escrito com uma sintaxe incorreta.')
 

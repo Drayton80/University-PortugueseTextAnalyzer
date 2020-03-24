@@ -9,7 +9,7 @@ class BagOfWords:
     def __init__(self, input_path, language):
         input_text = []
         documents = []
-        with open(input_path, 'r') as file:
+        with open(input_path, 'r', encoding='utf-8') as file:
             i = 1
             for line in file:
                 input_text.append(line)

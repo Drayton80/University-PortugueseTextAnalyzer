@@ -53,11 +53,6 @@ class SyntaticAnalyzer:
 
             self._sintagma_nominal()
 
-        elif self._current_value['class'] == "substantivo":
-            self._next_value()
-
-            self._sintagma_nominal()
-
         elif self._current_value['class'] == "pronome":
             self._next_value()
 
@@ -75,7 +70,7 @@ class SyntaticAnalyzer:
                 return
 
         else:
-            return Exception()
+            raise Exception()
 
     def _sintagma_verbal(self):
         if self._current_value['class'] == "advérbio":
@@ -98,7 +93,7 @@ class SyntaticAnalyzer:
             if self._current_value['class'] == "verbo":
                 return
             else:
-                return Exception()
+                raise Exception()
         
         else:
             return
@@ -117,7 +112,7 @@ class SyntaticAnalyzer:
             if self._current_value['class'] == "adjetivo":
                 return
             else:
-                return Exception()
+                raise Exception()
         elif self._current_value['class'] == "adjetivo":
             self._next_value()
 
@@ -127,6 +122,7 @@ class SyntaticAnalyzer:
 
     def text(self):
         self._next_value()
+        print(self._current_value, 'aqui')
         if self._current_value['class'] == "advérbio":
             self._sintagma_adverbial()
 
@@ -134,7 +130,6 @@ class SyntaticAnalyzer:
             self.text()
         elif self._current_value['class'] in ['substantivo', 'pronome', 'adjetivo']:
             self._sentenca1()
-
             self._next_value()
             if self._current_value['class'] == 'pontuação':
                 self._next_value()
@@ -144,4 +139,4 @@ class SyntaticAnalyzer:
                 else:
                     return
             else:
-                return Exception()
+                raise Exception()
