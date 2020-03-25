@@ -18,8 +18,10 @@ if __name__ == '__main__':
     print()
     BagOfWords('../data/input.txt', 'portuguese').print_bag_of_words()
 
+    syntatic_analyzer = SyntaticAnalyzer('../data/input.txt')
+
     try:
-        SyntaticAnalyzer('../data/input.txt').text()
+        syntatic_analyzer.analyze_syntax()
         print('\nO texto não possui qualquer erro sintático')
     except Exception as e:
         print('O texto está escrito com uma sintaxe incorreta.')

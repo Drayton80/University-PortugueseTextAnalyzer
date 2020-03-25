@@ -12,15 +12,15 @@ class LexicalAnalyzer:
             input_text = file.read().replace('\n', ' ')
             nlp = spacy.load('pt_core_news_sm')
 
-        input_text_corrected = ""
+            input_text_corrected = ""
+            
+            for word in input_text.split(' '):
+                if len(word) > 1 and word[-1] in ['.', ',', '!', '?']:
+                    word = self._convert_plural_to_singular(word[:-1]) + word[-1]
+                else:
+                    word = self._convert_plural_to_singular(word)
 
-        for word in input_text.split(' '):
-            if word[-1] in ['.', ',', '!', '?']:
-                word = self._convert_plural_to_singular(word[:-1]) + word[-1]
-            else:
-                word = self._convert_plural_to_singular(word)
-
-            input_text_corrected += word + ' '
+                input_text_corrected += word + ' '
         
         self._doc = nlp(input_text_corrected)
 
@@ -46,7 +46,7 @@ class LexicalAnalyzer:
             return self._replace_characters(word, len(word)-2, len(word), 'l')
         elif word[-2:] == 'ns':
             return self._replace_characters(word, len(word)-2, len(word), 'm')
-        elif word[-1] == 's':
+        elif len(word) > 1 and word[-1] == 's':
             return self._replace_characters(word, len(word)-1, len(word), '')
         else:
             return word            
@@ -118,7 +118,7 @@ class LexicalAnalyzer:
                 token = element.orth_.lower()
 
             # Não inclusão das stopwords:
-            if self._is_stopword(token, part_of_speech):
+            if self._is_stopword(token, part_of_speech) or part_of_speech == 'espaçamento':
                 continue
 
             table.append({'token': token, 'class': part_of_speech})
