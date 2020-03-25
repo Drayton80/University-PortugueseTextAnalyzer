@@ -8,13 +8,12 @@ pd.set_option('display.max_columns', 500)
 class BagOfWords:
     def __init__(self, input_path, language):
         input_text = []
-        documents = []
+        documents = ["document1"]
         with open(input_path, 'r', encoding='utf-8') as file:
-            i = 1
+            text_line = ""
             for line in file:
-                input_text.append(line)
-                documents.append("document" + str(i))
-                i += 1
+                text_line += line
+            input_text = [text_line]
         # Construção do vetorizador, ele terá as palavras presentes em todos os documentos no input
         # junto também definimos quais serão as palavras ignoradas para fazer o bag of word, por serem
         # irrelevantes a maioria dos modelos, vamos pegar a padronização disponível na biblioteca nltk
@@ -31,4 +30,4 @@ class BagOfWords:
     def print_bag_of_words(self):
         print(self._bagOfWords)
 
-#BagOfWords("../data/input2.txt", 'english').print_bag_of_words()
+# BagOfWords("../data/input.txt", 'english').print_bag_of_words()
