@@ -104,6 +104,8 @@ class LexicalAnalyzer:
     
     def create_table(self) -> list:
         table = []
+
+        i = 1
         
         for element in self._doc:
             # Extrai a classe gramátical da palavra e converte para português:
@@ -121,6 +123,8 @@ class LexicalAnalyzer:
             if self._is_stopword(token, part_of_speech) or part_of_speech == 'espaçamento':
                 continue
 
-            table.append({'token': token, 'class': part_of_speech})
+            table.append({'token': token, 'class': part_of_speech, 'number': i})
+
+            i += 1
         
         return table

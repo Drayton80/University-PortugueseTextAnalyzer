@@ -11,9 +11,7 @@ class SyntaticAnalyzer:
             self._old_value = self._current_value
             self._current_value = self._lexical_table.pop(0)
         else:
-            self._current_value = {'token': '', 'class': '', 'line': ''}
-
-        #print(self._old_value, self._current_value, "\n", sep="\n")
+            self._current_value = {'token': '', 'class': '', 'number': ''}
         
         return self._current_value
 
@@ -25,8 +23,6 @@ class SyntaticAnalyzer:
             self._current_value = self._old_value
             self._old_value = None
 
-            #print("Previous Value()", self._current_value, "\n", sep="\n")
-        
             return self._current_value
 
     def _sentenca1(self):
@@ -35,7 +31,6 @@ class SyntaticAnalyzer:
             
             self._next_value()
             self._sentenca2()
-
 
     def _sentenca2(self):
         if self._current_value['class'] in ['pronome', "substantivo", "adjetivo"]:
@@ -52,8 +47,6 @@ class SyntaticAnalyzer:
             self._previous_value()
             return
 
-    # Caso haja um if antes do sintagma nominal checando se self._current_value['class'] in ['pronome', "substantivo", "adjetivo"]
-    # antes da chamada do método não deve haver um self._next_value()
     def _sintagma_nominal(self):
         if self._current_value['class'] == "adjetivo":
             self._next_value()
@@ -63,6 +56,7 @@ class SyntaticAnalyzer:
             if self._current_value['class'] in ['pronome', "substantivo", "adjetivo"]:         
                 self._sintagma_nominal()
             else:
+                self._previous_value()
                 return
 
         elif self._current_value['class'] == "pronome":
@@ -79,10 +73,7 @@ class SyntaticAnalyzer:
                 self._sintagma_nominal()
             else:
                 self._previous_value()
-                return
-        else:
-            print("A sentença não possui um sujeito")
-            raise Exception()
+                return            
 
     def _sintagma_verbal(self):
         if self._current_value['class'] == "advérbio":
@@ -104,7 +95,7 @@ class SyntaticAnalyzer:
             if self._current_value['class'] == "verbo":
                 return
             else:
-                print("Verbo auxiliar não é precedido de um verbo")
+                print("O verbo auxiliar", self._old_value["token"], "da palavra de nº", self._old_value["number"], "não está precedindo um verbo ", end='')
                 raise Exception()
         else:
             self._previous_value()
@@ -150,7 +141,7 @@ class SyntaticAnalyzer:
                     # Caso class seja igual a vazio significa que chegou ao fim do texto
                     return
             else:
-                print("Falta de pontuação final")
+                print("A pontuação final do texto está faltando ", end='')
                 raise Exception()
 
     def analyze_syntax(self):

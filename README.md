@@ -20,7 +20,7 @@ A classe que representa esse analisador faz a verificação da sintaxe do texto 
 
 *Texto &#8594; SintagmaAdverbial Texto | Sentença pontuação Texto | Sentença pontuação*  
 *Sentença &#8594; Sentença SintagmaNominal | Sentença SintagmaVerbal | SintagmaNominal*  
-*SintagmaNominal  &#8594; SintagmaAdjetival SintagmaNominal | SintagmaAdjetival | substantivo SintagmaNominal  | pronome SintagmaNominal  | substantivo | pronome*  
+*SintagmaNominal &#8594; SintagmaAdjetival SintagmaNominal | SintagmaAdjetival | substantivo SintagmaNominal  | pronome SintagmaNominal  | substantivo | pronome*  
 *SintagmaVerbal &#8594; SintagmaAdverbial SintagmaVerbal | verbo-auxiliar verbo | verbo SintagmaVerbal | verbo SintagmaAdjetival | verbo*  
 *SintagmaAdjetival  &#8594; SintagmaAdverbial SintagmaAdjetival | adjetivo SintagmaAdjetival | ε*
 *SintagmaAdverbial &#8594; advérbio SintagmaAdverbial | advérbio | ε*  
@@ -40,7 +40,6 @@ Para adequar a gramática aos métodos de recursão utilizados para a análise s
 *SintagmaAdverbial &#8594; advérbio SintagmaAdverbial | advérbio | ε*  
 
 ## Bag of Words
-
 
 Com o texto checado a partir das técnicas de analise gramatical e léxicas aprendidas durante a disciplina de compiladores, caso nenhuma exceção venha a aparecer, a linguagem presente no texto está definida corretamente, logo podemos a usar como entrada para um modelo de machine Learning.
 

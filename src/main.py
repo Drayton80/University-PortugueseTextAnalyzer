@@ -24,6 +24,6 @@ if __name__ == '__main__':
         syntatic_analyzer.analyze_syntax()
         print('\nO texto não possui qualquer erro sintático')
     except Exception as e:
-        print('O texto está escrito com uma sintaxe incorreta.')
+        print('e, devido a esse motivo, o texto está escrito com uma sintaxe incorreta.')
 
     
