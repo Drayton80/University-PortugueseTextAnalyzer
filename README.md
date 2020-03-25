@@ -22,7 +22,7 @@ A classe que representa esse analisador faz a verificação da sintaxe do texto 
 *Sentença &#8594; Sentença SintagmaNominal | Sentença SintagmaVerbal | SintagmaNominal*  
 *SintagmaNominal &#8594; SintagmaAdjetival SintagmaNominal | SintagmaAdjetival | substantivo SintagmaNominal  | pronome SintagmaNominal  | substantivo | pronome*  
 *SintagmaVerbal &#8594; SintagmaAdverbial SintagmaVerbal | verbo-auxiliar verbo | verbo SintagmaVerbal | verbo SintagmaAdjetival | verbo*  
-*SintagmaAdjetival  &#8594; SintagmaAdverbial SintagmaAdjetival | adjetivo SintagmaAdjetival | ε*
+*SintagmaAdjetival  &#8594; SintagmaAdverbial SintagmaAdjetival | adjetivo SintagmaAdjetival | ε*  
 *SintagmaAdverbial &#8594; advérbio SintagmaAdverbial | advérbio | ε*  
 
 Para adequar a gramática aos métodos de recursão utilizados para a análise sintática foi necessário aplicar o método de desambiguação e remover as recursões à esquerda, transformado a gramática da seguinte forma:
@@ -32,11 +32,11 @@ Para adequar a gramática aos métodos de recursão utilizados para a análise s
 *Sentença1 &#8594; SintagmaNominal Sentença2*  
 *Sentença2 &#8594; SintagmaNominal  Sentença2 | SintagmaVerbal Sentença2 | ε*  
 *SintagmaNominal &#8594; SintagmaNominal SintagmaAdjetival | SintagmaAdjetival | substantivo PosteriorNome  | pronome PosteriorNome*  
-*PosteriorAdjetivo &#8594; SintagmaNominal | ε*
-*PosteriorNome &#8594; SintagmaNominal | ε*
+*PosteriorAdjetivo &#8594; SintagmaNominal | ε* 
+*PosteriorNome &#8594; SintagmaNominal | ε*  
 *SintagmaVerbal &#8594; SintagmaAdverbial SintagmaVerbal | verbo-auxiliar verbo | verbo PosteriorVerbo*  
 *PosteriorVerbo &#8594; SintagmaVerbal | SintagmaAdjetival | ε*  
-*SintagmaAdjetival  &#8594; SintagmaAdverbial SintagmaAdjetival | adjetivo SintagmaAdjetival | ε*
+*SintagmaAdjetival  &#8594; SintagmaAdverbial SintagmaAdjetival | adjetivo SintagmaAdjetival | ε* 
 *SintagmaAdverbial &#8594; advérbio SintagmaAdverbial | advérbio | ε*  
 
 ## Bag of Words
